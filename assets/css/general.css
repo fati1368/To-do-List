@@ -11,7 +11,7 @@ a{
 }
 body{
     direction:ltr;
-    background-color: rgb(10, 10, 10);
+    /* background-color: rgb(10, 10, 10); */
 }
 .sigmar-regular {
     font-family: "Sigmar", sans-serif;

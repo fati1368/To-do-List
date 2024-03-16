@@ -21,13 +21,36 @@
     </section>
     <section class="input">
       <input class="task" placeholder="Enter your task!" />
-      <button>Add Task</button>
+      <button onclick="addTask()">Add Task</button>
       <div class="list">
-        <ul></ul>
+        <ul class="list-task"></ul>
       </div>
     </section>
     <footer>
       <h2>We Will Fail When We Fail To Try!</h2>
     </footer>
+    <script>
+      function addTask() {
+        var list = document.querySelector(".input .list .list-task");
+        var input = document.querySelector(".input .task");
+        var value = input.value;
+        if (value.trim().length<3) {
+            alert("pleas write 3 character at least!");
+          input.value = "";
+          input.focus();
+          return;
+        }else if (value.trim().length=0) {
+
+          alert("pleas enter the task!");
+          input.value = "";
+          input.focus();
+        }
+        var li = document.createElement("LI");
+        li.textContent = value;
+        list.appendChild(li);
+        input.value = "";
+        input.focus();
+      }
+    </script>
   </body>
 </html>
