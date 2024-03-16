@@ -7,18 +7,37 @@
   color: transparent;
   background-clip: text;
 }
-.input .task{
-    width:80%;
-    height:50px;
+.input .task {
+  width: 80%;
+  height: 50px;
+  border: 2px solid #833ab4;
+  font-size: 1.5rem;
+  padding: 0 5px;
 }
-.input button{
-    width:15%;
-    height:50px;
+.input .task::placeholder {
+  font-size: 1.5rem;
+  padding: 0 5px;
 }
-footer .footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
+.input button {
+  font-family: "Sigmar";
+  width: 15%;
+  height: 50px;
+  background-image: linear-gradient(to right, #833ab4, #fcb045);
+  border: 2px solid #833ab4;
+  font-size: 2.5rem;
+  color: #1b1919;
+  cursor: pointer;
+}
+footer{
+    height:100px;
+}
+footer .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height:100px;
+  background-color:rgb(10, 10, 10);
+padding:40px;
 }

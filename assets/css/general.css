@@ -38,7 +38,7 @@ html {
   padding: 0 10px;
   margin: 0 auto;
 }
-.flex {
+.flex-space {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -49,6 +49,25 @@ html {
 .pb1 {
   padding-bottom: 30px;
 }
+.mb1 {
+  margin-bottom: 30px;
+}
 .radius {
   border-radius: 10px;
+}
+.flex-Center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.style-list {
+  border-radius: 10px;
+  min-height: 100px;
+  width: 25%;
+  text-overflow: ellipsis;
+  background-image: linear-gradient(to right, #833ab4, #fcb045);
+  font-size:2rem;
+  padding:5px;
 }

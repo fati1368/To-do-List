@@ -14,7 +14,7 @@
     <section class="hero-section pb1 ">
       <div class="cotainer">
         <h1 class="title center">Organize Your Life!</h1>
-        <div class="time flex">
+        <div class="time flex-space">
           <h2 class="Hi "></h2>
           <div class="date-time">
             <h2 class="date"></h2>
@@ -25,10 +25,10 @@
     </section>
     <section class="input center pb1">
       <div class="cotainer">
-        <input class="task radius" placeholder="Enter your task!" />
-        <button class="radius" onclick="addTask()">Add Task</button>
+        <input class="task radius mb1" placeholder="Enter your task!" />
+        <button class="radius mb1" onclick="addTask()" >Add Task</button>
         <div class="list">
-          <ul class="list-task"></ul>
+          <ul class="list-task flex-Center"></ul>
         </div>
       </div>
     </section>
@@ -57,8 +57,10 @@
         var li = document.createElement("LI");
         li.textContent = value;
         list.appendChild(li);
+        li.classList.add("style-list")
         input.value = "";
         input.focus();
+
       }
       function Clock() {
         var cTime = new Date();
