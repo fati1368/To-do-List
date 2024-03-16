@@ -11,14 +11,28 @@
 .hero-section .title {
   font-family: "Sigmar";
   font-size: 10rem;
-  background-image: url(../img/Gifglitterdesk_1_1920x.webp);
+  background-image: url(../img/EZ1Mp.gif);
   background-size: cover;
-  background-position: center;
+  background-position: left;
   color: transparent;
   background-clip: text;
 }
-.input{
-    opacity: 0;;
+.hero-section .time .Hi {
+  background-image: linear-gradient(
+    to left,
+    #030d1d,
+    #00234b,
+    #00387f,
+    #004cb4,
+    #125eeb
+  );
+  padding: 3px;
+}
+.hero-section .time .date-time {
+  color: #00234b;
+}
+.input {
+  opacity: 0;
 }
 .input .task {
   width: 80%;
@@ -35,10 +49,17 @@
   font-family: "Sigmar";
   width: 15%;
   height: 50px;
-  background-image: linear-gradient(to right, #833ab4, #fcb045);
-  border: 2px solid #833ab4;
+  background-image: linear-gradient(
+    to right top,
+    #5f12d8,
+    #8e00d4,
+    #b200d0,
+    #d100cb,
+    #eb12c6
+  );
+  border: 2px solid #fff;
   font-size: 2.5rem;
-  color: #1b1919;
+  color: #fff;
   cursor: pointer;
 }
 footer {
@@ -53,17 +74,15 @@ footer .footer {
   height: 130px;
   background-color: rgb(10, 10, 10);
   padding: 40px;
-  
 }
 
 footer .footer .show {
-    font-family: "Sigmar";
+  font-family: "Sigmar";
 
-    width: 50%;
-    height:20px;
-    font-size: 3rem;
-    color: #fd1d1d;
-background-color: transparent;    
-border: none;
+  width: 50%;
+  height: 20px;
+  font-size: 3rem;
+  color: #fd1d1d;
+  background-color: transparent;
+  border: none;
 }
-

@@ -68,7 +68,10 @@ html {
   min-height: 100px;
   width: 25%;
   text-overflow: ellipsis;
-  background-image: linear-gradient(to right, #833ab4, #fcb045);
   font-size:2rem;
   padding:5px;
+  background-image: linear-gradient(to right top, #200d9d, #81008e, #b50077, #d7005c, #eb1242);
+}
+.style-list:nth-child(odd){
+    background-image: linear-gradient(to right top, #9d0d4c, #9a005f, #8d0078, #700095, #2013b3);
 }
