@@ -11,11 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <section class="hero-section pb1 ">
+    <div class="background"></div>
+    <section class="hero-section pb1">
       <div class="cotainer">
         <h1 class="title center">Organize Your Life!</h1>
         <div class="time flex-space">
-          <h2 class="Hi "></h2>
+          <h2 class="Hi"></h2>
           <div class="date-time">
             <h2 class="date"></h2>
             <h2 class="time"></h2>
@@ -26,7 +27,7 @@
     <section class="input center pb1">
       <div class="cotainer">
         <input class="task radius mb1" placeholder="Enter your task!" />
-        <button class="radius mb1" onclick="addTask()" >Add Task</button>
+        <button class="radius mb1" onclick="addTask()">Add Task</button>
         <div class="list">
           <ul class="list-task flex-Center"></ul>
         </div>
@@ -35,11 +36,21 @@
     <footer>
       <div class="cotainer">
         <div class="footer center pb1">
-            <h2>We Will Fail When We Fail To Try!</h2>
+          <h2 class="h2">
+            We Will Fail <span class="color-text">When We Fail To Try </span>!
+          </h2>
+          <button class="show mb1" onclick="click1()">Click me!</button>
+          <br />
         </div>
       </div>
     </footer>
     <script>
+      function click1() {
+        document.querySelector(".input").style.opacity = "1";
+        document.querySelector(".footer .show").style.display = "none";
+        document.querySelector(".background").style.opacity = "0.3";
+        document.querySelector(" .footer .color-text").style.color = "yellow";
+      }
       function addTask() {
         var list = document.querySelector(".input .list .list-task");
         var input = document.querySelector(".input .task");
@@ -57,10 +68,9 @@
         var li = document.createElement("LI");
         li.textContent = value;
         list.appendChild(li);
-        li.classList.add("style-list")
+        li.classList.add("style-list");
         input.value = "";
         input.focus();
-
       }
       function Clock() {
         var cTime = new Date();
@@ -83,7 +93,7 @@
         event = "Good Evening";
       }
       var hi = document.querySelector(".hero-section .time .hi");
-      hi.textContent = text + " " +event;
+      hi.textContent = text + " " + event;
       function DataElement() {
         var now = new Date();
         var dateLocal = now.toLocaleDateString();
