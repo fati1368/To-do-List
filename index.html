@@ -20,27 +20,30 @@
       </div>
     </section>
     <section class="input">
-      <input class="task" placeholder="Enter your task!" />
-      <button onclick="addTask()">Add Task</button>
-      <div class="list">
-        <ul class="list-task"></ul>
+      <div class="cotainer">
+        <input class="task" placeholder="Enter your task!" />
+        <button onclick="addTask()">Add Task</button>
+        <div class="list">
+          <ul class="list-task"></ul>
+        </div>
       </div>
     </section>
     <footer>
-      <h2>We Will Fail When We Fail To Try!</h2>
+      <div class="cotainer">
+        <h2>We Will Fail When We Fail To Try!</h2>
+      </div>
     </footer>
     <script>
       function addTask() {
         var list = document.querySelector(".input .list .list-task");
         var input = document.querySelector(".input .task");
         var value = input.value;
-        if (value.trim().length<3) {
-            alert("pleas write 3 character at least!");
+        if (value.trim().length < 3) {
+          alert("pleas write 3 character at least!");
           input.value = "";
           input.focus();
           return;
-        }else if (value.trim().length=0) {
-
+        } else if ((value.trim().length = 0)) {
           alert("pleas enter the task!");
           input.value = "";
           input.focus();
@@ -52,5 +55,6 @@
         input.focus();
       }
     </script>
+    <script></script>
   </body>
 </html>
