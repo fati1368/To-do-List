@@ -1,0 +1,24 @@
+.hero-section .title {
+  font-family: "Sigmar";
+  font-size: 10rem;
+  background-image: url(../img/Gifglitterdesk_1_1920x.webp);
+  background-size: cover;
+  background-position: center;
+  color: transparent;
+  background-clip: text;
+}
+.input .task{
+    width:80%;
+    height:50px;
+}
+.input button{
+    width:15%;
+    height:50px;
+}
+footer .footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+}

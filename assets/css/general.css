@@ -1,20 +1,54 @@
-*{
-    box-sizing:border-box;
-    padding:0;
-    margin:0;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
-ul,li{
-    list-style:none;
+ul,
+li {
+  list-style: none;
 }
-a{
-    text-decoration:none;
+a {
+  text-decoration: none;
 }
-body{
-    direction:ltr;
-    /* background-color: rgb(10, 10, 10); */
+body {
+  direction: ltr;
+  font-family: "marmelad-regular";
+  font-size: 1.5rem;
+  background-color: rgb(10, 10, 10);
+  color: #fff;
 }
-.sigmar-regular {
-    font-family: "Sigmar", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
+html {
+  font-size: 10px;
+}
+@font-face {
+  font-family: "marmelad-regular";
+  src: url(../Font/Marmelad-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Sigmar", sans-serif;
+  src: url(../Font/Sigmar-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+.cotainer {
+  max-width: 1300px;
+  width: 100%;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.center {
+  text-align: center;
+}
+.pb1 {
+  padding-bottom: 30px;
+}
+.radius {
+  border-radius: 10px;
+}
