@@ -9,7 +9,7 @@
   <body>
     <section class="hero-section">
       <div class="cotainer">
-        <h1>Organize Your Life With Me!</h1>
+        <h1>Organize Your Life!</h1>
         <div class="time">
           <h2 class="Hi"></h2>
           <div class="date-time">
@@ -69,11 +69,34 @@
         event = "Good Night";
       } else if (time > 4 && time <= 12) {
         event = "Good Morning";
-      } else if (time > 12 && time <= 19) {
+      } else if (time > 12 && time <= 16) {
         event = "Good Afternoon";
+      } else if (time > 16 && time <= 19) {
+        event = "Good Evening";
       }
       var hi = document.querySelector(".hero-section .time .hi");
       hi.textContent = text + event;
+      function DataElement() {
+        var now = new Date();
+        var dateLocal = now.toLocaleDateString();
+        console.log(dateLocal);
+        return dateLocal;
+      }
+      var dateNow = document.querySelector(
+        ".hero-section .time .date-time  .date"
+      );
+      dateNow.textContent = DataElement();
+
+      function timeElement() {
+        var now = new Date();
+        var timeLocal = now.toLocaleTimeString();
+        console.log(timeLocal);
+        return timeLocal;
+      }
+      var timeNow = document.querySelector(
+        ".hero-section .time .date-time  .time"
+      );
+      timeNow.textContent = timeElement();
     </script>
   </body>
 </html>
