@@ -13,7 +13,7 @@
   <body>
     <div class="background"></div>
     <section class="hero-section pb1">
-      <div class="cotainer">
+      <div class="container">
         <h1 class="title center">Organize Your Life!</h1>
         <div class="time flex-space">
           <h2 class="Hi"></h2>
@@ -25,7 +25,7 @@
       </div>
     </section>
     <section class="input center pb1">
-      <div class="cotainer">
+      <div class="container">
         <input class="task radius mb1" placeholder="Enter your task!" />
         <button class="radius mb1" onclick="addTask()">Add Task</button>
         <div class="list">
@@ -34,7 +34,7 @@
       </div>
     </section>
     <footer>
-      <div class="cotainer">
+      <div class="container">
         <div class="footer center pb1">
           <h2 class="h2">
             We Will Fail <span class="color-text">When We Fail To Try </span>!
@@ -48,28 +48,33 @@
       function click1() {
         document.querySelector(".input").style.opacity = "1";
         document.querySelector(".footer .show").style.display = "none";
-        document.querySelector(".background").style.opacity = "0.3";
+        document.querySelector(".background").style.opacity = "0.1";
         document.querySelector(" .footer .color-text").style.color = "yellow";
-        document.querySelector(" .hero-section .time .date-time").style.color = "#004cb4";
-
+        document.querySelector(" .hero-section .time .date-time").style.color =
+          "#004cb4";
       }
       function addTask() {
         var list = document.querySelector(".input .list .list-task");
         var input = document.querySelector(".input .task");
-        var value = input.value;
-        if (value.trim().length < 3) {
+        var value = input.value.trim();
+        if (value.length == 0) {
+          alert("pleas enter the task!");
+          input.value = "";
+          input.focus();
+          return;
+        }else if (value.length < 3) {
           alert("pleas write 3 character at least!");
           input.value = "";
           input.focus();
           return;
-        } else if ((value.trim().length = 0)) {
-          alert("pleas enter the task!");
-          input.value = "";
-          input.focus();
         }
         var li = document.createElement("LI");
-        li.textContent = value;
+        var divList=document.createElement("DIV");
+        var pList=document.createElement("P")
+        pList.textContent = value;
         list.appendChild(li);
+        li.appendChild(divList);
+        divList.appendChild(pList)
         li.classList.add("style-list");
         input.value = "";
         input.focus();
