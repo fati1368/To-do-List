@@ -19,6 +19,7 @@ body {
   font-size: 1.5rem;
   background-color: rgb(10, 10, 10);
   color: #fff;
+  overflow-x: hidden;
 }
 
 @font-face {

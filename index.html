@@ -16,7 +16,7 @@
       <div class="container">
         <h1 class="title center">Organize Your Life!</h1>
         <div class="time flex-space">
-          <h2 class="Hi"></h2>
+          <h2 class="Hi">Hello Dear ! Good Time!</h2>
           <div class="date-time">
             <h2 class="date"></h2>
             <h2 class="time"></h2>
@@ -39,20 +39,33 @@
           <h2 class="h2">
             We Will Fail <span class="color-text">When We Fail To Try </span>!
           </h2>
-          <button class="show mb1" onclick="click1()">Click me!</button>
+          <button class="show mb1" onclick="clickMe.click1()">Click me!</button>
           <br />
         </div>
       </div>
     </footer>
     <script>
-      function click1() {
-        document.querySelector(".input").style.opacity = "1";
-        document.querySelector(".footer .show").style.display = "none";
-        document.querySelector(".background").style.opacity = "0.1";
-        document.querySelector(" .footer .color-text").style.color = "yellow";
-        document.querySelector(" .hero-section .time .date-time").style.color =
-          "#004cb4";
-      }
+      var clickMe = {
+        whatName() {
+          var name = prompt("Hello! \n What's your name?", "");
+          return name;
+        },
+        click1() {
+          document.querySelector(".input").style.opacity = "1";
+          document.querySelector(".footer .show").style.display = "none";
+          document.querySelector(".background").style.opacity = "0.1";
+          document.querySelector(" .footer .color-text").style.color = "yellow";
+          document.querySelector(
+            " .hero-section .time .date-time"
+          ).style.color = "#004cb4";
+          var hi = document.querySelector(".hero-section .time .hi");
+          hi.textContent = "HELLO " + clickMe.whatName() + " DEAR!" + " ";
+          var announcement = document.createElement("SPAN");
+          hi.appendChild(announcement);
+          announcement.style.color = "red";
+          announcement.textContent = event;
+        },
+      };
       function addTask() {
         var list = document.querySelector(".input .list .list-task");
         var input = document.querySelector(".input .task");
@@ -62,21 +75,21 @@
           input.value = "";
           input.focus();
           return;
-        }else if (value.length < 3) {
+        } else if (value.length < 3) {
           alert("pleas write 3 character at least!");
           input.value = "";
           input.focus();
           return;
         }
         var li = document.createElement("LI");
-        var divList=document.createElement("DIV");
-        var pList=document.createElement("P")
+        var divList = document.createElement("DIV");
+        var pList = document.createElement("P");
         pList.textContent = value;
         list.appendChild(li);
         li.appendChild(divList);
-        divList.appendChild(pList)
+        divList.appendChild(pList);
         li.classList.add("style-list");
-        pList.classList.add("ellipsis")
+        pList.classList.add("ellipsis");
         input.value = "";
         input.focus();
       }
@@ -87,7 +100,6 @@
         console.log(Hours);
       }
       var time = Clock();
-      var text = "HELLO DEAR!";
       var event = "";
       if (time > 19 && time < 24) {
         event = "Good Night";
@@ -100,8 +112,7 @@
       } else if (time > 16 && time <= 19) {
         event = "Good Evening";
       }
-      var hi = document.querySelector(".hero-section .time .hi");
-      hi.textContent = text + " " + event;
+
       function DataElement() {
         var now = new Date();
         var dateLocal = now.toLocaleDateString();
