@@ -62,6 +62,34 @@
   color: #fff;
   cursor: pointer;
 }
+.input .list .list-task li {
+  position: relative;
+}
+.input .list .list-task .btn {
+  position: absolute;
+  z-index: 1;
+  font-family: "Times New Roman", Times, serif;
+  width: 10%;
+  height: 50px;
+  background: transparent;
+  font-size: 1.5rem;
+  color: #030d1d;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+.input .list .list-task .delete {
+  top: 50%;
+  left: 10%;
+}
+.input .list .list-task .edit {
+  top: 40%;
+  left: 10%;
+}
+.input .list .list-task .done {
+  top: 30%;
+  left: 10%;
+}
 footer {
   height: 130px;
 }

@@ -86,12 +86,36 @@
         var li = document.createElement("LI");
         var divList = document.createElement("DIV");
         var pList = document.createElement("P");
+        var btnRemove = document.createElement("BUTTON");
+        var btnDone = document.createElement("BUTTON");
+        var btnEdit = document.createElement("BUTTON");
         pList.textContent = value;
+        btnRemove.textContent = "Delete ";
+        btnDone.textContent = "Done! ";
+        btnEdit.textContent = "Edit ";
         list.appendChild(li);
         li.appendChild(divList);
         divList.appendChild(pList);
+        li.appendChild(btnRemove);
+        li.appendChild(btnDone);
+        li.appendChild(btnEdit);
         li.classList.add("style-list");
         pList.classList.add("ellipsis");
+        btnRemove.classList.add("btn", "delete");
+        btnDone.classList.add("btn", "done");
+        btnEdit.classList.add("btn", "edit");
+        btnRemove.addEventListener("click", function (e) {
+          e.target.parentElement.remove();
+        });
+        btnDone.addEventListener("click", function (e) {
+          e.target.parentElement.style.textDecoration = "line-through";
+          console.log(e);
+        });
+        btnEdit.addEventListener("click", function (e) {
+          var Edit = prompt("Edit your TEXT!");
+          e.target.parentElement.textContent = Edit;
+        });
+
         input.value = "";
         input.focus();
       }
