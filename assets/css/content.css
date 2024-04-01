@@ -103,10 +103,8 @@ footer .footer {
   background-color: rgb(10, 10, 10);
   padding: 40px;
 }
-
 footer .footer .show {
   font-family: "Sigmar";
-
   width: 50%;
   height: 20px;
   font-size: 3rem;

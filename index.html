@@ -64,6 +64,13 @@
           hi.appendChild(announcement);
           announcement.style.color = "red";
           announcement.textContent = event;
+          document.querySelector("footer .footer").style.height = "30px";
+          document.querySelector("footer .footer").style.padding = "10px";
+          document.querySelector("footer .footer").style.paddingBottom = "30px";
+          document.querySelector("footer .footer .show").style.fontSize =
+            "1rem";
+          document.querySelector(".hero-section .title").style.fontSize =
+            "5rem";
           input.focus();
         },
       };
