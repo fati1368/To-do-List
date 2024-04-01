@@ -64,11 +64,13 @@
           hi.appendChild(announcement);
           announcement.style.color = "red";
           announcement.textContent = event;
+          input.focus();
         },
       };
+      var list = document.querySelector(".input .list .list-task");
+      var input = document.querySelector(".input .task");
+
       function addTask() {
-        var list = document.querySelector(".input .list .list-task");
-        var input = document.querySelector(".input .task");
         var value = input.value.trim();
         if (value.length == 0) {
           alert("pleas enter the task!");
@@ -93,6 +95,11 @@
         input.value = "";
         input.focus();
       }
+      input.addEventListener("keydown", function (e) {
+        if (e.keyCode === 13) {
+          addTask();
+        }
+      });
       function Clock() {
         var cTime = new Date();
         var Hours = cTime.getHours();
