@@ -1,6 +1,13 @@
 document.addEventListener("DOMContentLoaded", toDoList);
 function toDoList() {
   var data = [];
+  dataOne = [
+    { id: 1, text: "input.value.trim()" },
+    { id: 2, text: "input.trim()" },
+    { id: 3, text: ".value.trim()" },
+  ];
+  var tst = new Map(dataOne.map((c) => [c.id, c]));
+  console.log(tst);
   var input = document.getElementById("input-task");
   var buttonAdd = document.getElementById("add-task");
   var ulList = document.createElement("UL");
@@ -10,9 +17,10 @@ function toDoList() {
   }
   function deletTask(currentItem, event) {
     event.stopPropagation();
-    data = data.filter(function (item) {
-      return item.id != currentItem.id;
-    });
+    //=>convert to obj
+    var Iterator = new Map(data.map((item) => [item.id, item]));
+    Iterator.delete(currentItem.id); //=>delet
+    data = Array.from(Iterator.values()); ///==> convert itrator to array
     printList();
   }
   function doneTask(currentItem) {
@@ -42,7 +50,7 @@ function toDoList() {
       spanText.addEventListener("click", function () {
         doneTask(currentItem);
       });
-      LiElement.append(buttonRemove, spanText);
+      LiElement.append(spanText, buttonRemove);
       ulList.appendChild(LiElement);
     });
     document.body.appendChild(ulList);

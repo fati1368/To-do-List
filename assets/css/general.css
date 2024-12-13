@@ -17,8 +17,6 @@ body {
   direction: ltr;
   font-family: "marmelad-regular";
   font-size: 1.5rem;
-  background-color: rgb(10, 10, 10);
-  color: #fff;
   overflow-x: hidden;
 }
 
@@ -107,4 +105,3 @@ body {
     #2013b3
   );
 }
-
