@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  var data = [];
+  var data = localStorage.getItem("data") === null ? [] 
+                : JSON.parse(localStorage.getItem("data")) 
+              console.log(data)
+
   var input = document.getElementById("input-task");
   var buttonAdd = document.getElementById("add-task");
   var ulList = document.createElement("UL");
@@ -37,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   var printList = () => {
+    localStorage.setItem("data", JSON.stringify(data))
     ulList.innerHTML = "";
     data.forEach(item => ulList.appendChild(renderElement(item)));
     document.body.appendChild(ulList);
@@ -57,4 +61,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   buttonAdd.addEventListener("click", addList);
   input.addEventListener("keydown", (e) => e.key === "Enter" && addList());
+  printList();
 });

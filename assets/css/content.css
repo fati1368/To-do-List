@@ -1,4 +1,116 @@
-.hero-section .title {
-  font-family: "Sigmar";
-  font-size: 10rem;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: url('https://source.unsplash.com/1600x900/?nature,abstract') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #2c3e50;
+}
+
+#input-task {
+  width: 100%;
+  max-width: 360px;
+  padding: 12px 20px;
+  margin: 15px 0;
+  border: 2px solid #e67e22;
+  border-radius: 25px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#input-task:focus {
+  border-color: #d35400;
+  box-shadow: 0 0 10px rgba(211, 84, 0, 0.4);
+}
+
+#add-task {
+  width: 100%;
+  max-width: 360px;
+  padding: 12px 20px;
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#add-task:hover {
+  background-color: #d35400;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-width: 360px;
+  margin-top: 20px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+li:hover {
+  transform: scale(1.02);
+}
+
+li span {
+  flex-grow: 1;
+  font-size: 16px;
+}
+
+li .remove-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+li .remove-button:hover {
+  background-color: #c0392b;
+}
+
+li.done span {
+  text-decoration: line-through;
+  color: #27ae60;
+}
+
+li.done::before {
+  content: "✔";
+  color: #27ae60;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+li.done:hover {
+  background-color: #ecf0f1;
+}
+
+input:focus,
+button:focus {
+  outline: none;
 }
