@@ -1,13 +1,6 @@
 document.addEventListener("DOMContentLoaded", toDoList);
 function toDoList() {
   var data = [];
-  dataOne = [
-    { id: 1, text: "input.value.trim()" },
-    { id: 2, text: "input.trim()" },
-    { id: 3, text: ".value.trim()" },
-  ];
-  var tst = new Map(dataOne.map((c) => [c.id, c]));
-  console.log(tst);
   var input = document.getElementById("input-task");
   var buttonAdd = document.getElementById("add-task");
   var ulList = document.createElement("UL");
@@ -15,22 +8,26 @@ function toDoList() {
     input.value = "";
     input.focus();
   }
+
   function deletTask(currentItem, event) {
+    var Iterator = new Map(data.map((item) => [item.id, item])); //=>convert to obj
     event.stopPropagation();
-    //=>convert to obj
-    var Iterator = new Map(data.map((item) => [item.id, item]));
-    Iterator.delete(currentItem.id); //=>delet
-    data = Array.from(Iterator.values()); ///==> convert itrator to array
+    Iterator.delete(currentItem.id);
+    data = Array.from(Iterator.values()); ///==> convert to array by value
     printList();
   }
+
   function doneTask(currentItem) {
-    data = data.filter(function (item) {
-      if (item.id === currentItem.id) {
-        item.statuse = !currentItem.statuse;
-      }
-      return item;
-    });
-    printList();
+    var Iterator = new Map(data.map((item) => [item.id, item])); //=>convert to obj
+    console.log(currentItem);
+    console.log(Iterator);
+    if (Iterator.has(currentItem.id)) {
+      const item = Iterator.get(currentItem.id);
+      item.statuse = !item.statuse;
+      Iterator.set(currentItem.id, item);
+      data = Array.from(Iterator.values());
+      printList();
+    }
   }
 
   function printList() {
@@ -78,5 +75,4 @@ function toDoList() {
       addList();
     }
   });
-  console.log(data);
 }
