@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   var input = document.getElementById("input-task");
   var buttonAdd = document.getElementById("add-task");
-  var ulList = document.createElement("UL");
+  var ulList = document.getElementById("list-task");
 
   var focusInput = () => (input.value = "", input.focus());
 
@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     buttonRemove.innerHTML = "X";
     spanText.innerHTML = text;
     if (statuse) {spanText.classList.add("done")};
+    buttonRemove.classList.add("remove-button")
 
     li.append(spanText, buttonRemove);
 
@@ -43,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("data", JSON.stringify(data))
     ulList.innerHTML = "";
     data.forEach(item => ulList.appendChild(renderElement(item)));
-    document.body.appendChild(ulList);
   };
 
   var addList = () => {

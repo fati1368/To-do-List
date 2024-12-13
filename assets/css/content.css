@@ -1,16 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Marmelad&family=Sigmar&display=swap");
 
 body {
-  font-family: 'Roboto', sans-serif;
-  background: url('https://source.unsplash.com/1600x900/?nature,abstract') no-repeat center center fixed;
-  background-size: cover;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: "Roboto", sans-serif;
+  /* background: url("background.png"); */
+  /* background-size: cover; */
   height: 100vh;
   color: #2c3e50;
+}
+.container{
+  
+  width: 100%;
+  max-width: 1200px;
+  padding: 10px;
+  margin: 2px auto;
 }
 
 #input-task {
@@ -94,19 +97,20 @@ li .remove-button:hover {
   background-color: #c0392b;
 }
 
-li.done span {
+.done {
   text-decoration: line-through;
   color: #27ae60;
 }
 
-li.done::before {
+.done::before {
   content: "✔";
   color: #27ae60;
   font-size: 18px;
   margin-right: 10px;
+  text-decoration: none;
 }
 
-li.done:hover {
+.done:hover {
   background-color: #ecf0f1;
 }
 
