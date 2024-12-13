@@ -9,24 +9,11 @@ function toDoList() {
     input.focus();
   }
 
-  function deletTask(currentItem, event) {
-    var Iterator = new Map(data.map((item) => [item.id, item])); //=>convert to obj
-    event.stopPropagation();
-    Iterator.delete(currentItem.id);
-    data = Array.from(Iterator.values()); ///==> convert to array by value
-    printList();
-  }
-
-  function doneTask(currentItem) {
-    var Iterator = new Map(data.map((item) => [item.id, item])); //=>convert to obj
-    console.log(currentItem);
-    console.log(Iterator);
+  function doneTask(currentItem, Iterator) {
     if (Iterator.has(currentItem.id)) {
       const item = Iterator.get(currentItem.id);
       item.statuse = !item.statuse;
       Iterator.set(currentItem.id, item);
-      data = Array.from(Iterator.values());
-      printList();
     }
   }
 
@@ -41,12 +28,19 @@ function toDoList() {
       }
       buttonRemove.innerHTML = "X";
       spanText.innerHTML = currentItem.text;
-      buttonRemove.addEventListener("click", function (event) {
-        deletTask(currentItem, event);
+      LiElement.addEventListener("click", function (event) {
+        var Iterator = new Map(data.map((item) => [item.id, item]));
+        if (event.target === buttonRemove) {
+          Iterator.delete(currentItem.id);
+          console.log("delet");
+        } else {
+          doneTask(currentItem, Iterator);
+          console.log("done");
+        }
+        data = Array.from(Iterator.values()); ///==> convert to array by value
+        printList();
       });
-      spanText.addEventListener("click", function () {
-        doneTask(currentItem);
-      });
+
       LiElement.append(spanText, buttonRemove);
       ulList.appendChild(LiElement);
     });
