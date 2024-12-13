@@ -1,72 +1,60 @@
-document.addEventListener("DOMContentLoaded", toDoList);
-function toDoList() {
+document.addEventListener("DOMContentLoaded", () => {
   var data = [];
   var input = document.getElementById("input-task");
   var buttonAdd = document.getElementById("add-task");
   var ulList = document.createElement("UL");
-  function focusInput() {
-    input.value = "";
-    input.focus();
-  }
 
-  function doneTask(currentItem, Iterator) {
-    if (Iterator.has(currentItem.id)) {
-      const item = Iterator.get(currentItem.id);
+  var focusInput = () => (input.value = "", input.focus());
+
+  var doneTask = (currentItem, taskMap) => { //finde & change current item in object
+    if (taskMap.has(currentItem.id)) {
+      var item = taskMap.get(currentItem.id);
       item.statuse = !item.statuse;
-      Iterator.set(currentItem.id, item);
+      taskMap.set(currentItem.id, item);
     }
-  }
+  };
 
-  function printList() {
-    ulList.innerHTML = "";
-    data.forEach(function (currentItem) {
-      var LiElement = document.createElement("LI");
-      var buttonRemove = document.createElement("BUTTON");
-      var spanText = document.createElement("SPAN");
-      if (currentItem.statuse === true) {
-        spanText.classList.add("done");
-      }
-      buttonRemove.innerHTML = "X";
-      spanText.innerHTML = currentItem.text;
-      LiElement.addEventListener("click", function (event) {
-        var Iterator = new Map(data.map((item) => [item.id, item]));
-        if (event.target === buttonRemove) {
-          Iterator.delete(currentItem.id);
-          console.log("delet");
-        } else {
-          doneTask(currentItem, Iterator);
-          console.log("done");
-        }
-        data = Array.from(Iterator.values()); ///==> convert to array by value
-        printList();
-      });
+  var renderElement = ({ id, text, statuse }) => {
+    var li = document.createElement("LI");
+    var buttonRemove = document.createElement("BUTTON");
+    var spanText = document.createElement("SPAN");
 
-      LiElement.append(spanText, buttonRemove);
-      ulList.appendChild(LiElement);
+    buttonRemove.innerHTML = "X";
+    spanText.innerHTML = text;
+    if (statuse) {spanText.classList.add("done")};
+
+    li.append(spanText, buttonRemove);
+
+    li.addEventListener("click", (event) => {
+      var taskMap = new Map(data.map(item => [item.id, item])); //Iterator
+      if (event.target === buttonRemove) {taskMap.delete(id)}
+      else {doneTask({ id, statuse }, taskMap)};
+      data = Array.from(taskMap.values());
+      printList();
     });
-    document.body.appendChild(ulList);
-  }
-  function addList() {
-    valueInput = input.value.trim();
-    if (valueInput.length === 0 || valueInput.length <= 3) {
-      alert("please correct text");
-      focusInput();
-      return;
-    }
 
-    var dataIndex = {
-      id: new Date().getTime(),
-      text: input.value.trim(),
-      statuse: false,
-    };
-    data.push(dataIndex);
+    return li;
+  };
+
+  var printList = () => {
+    ulList.innerHTML = "";
+    data.forEach(item => ulList.appendChild(renderElement(item)));
+    document.body.appendChild(ulList);
+  };
+
+  var addList = () => {
+    var valueInput = input.value.trim();
+    if (valueInput.length <= 3 || valueInput.length===0) {
+      return alert("Please enter a valid task"), focusInput();
+    }
+    data.push({ id: Date.now(),
+                text: valueInput,
+                statuse: false 
+              });
     printList();
     focusInput();
-  }
+  };
+
   buttonAdd.addEventListener("click", addList);
-  input.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-      addList();
-    }
-  });
-}
+  input.addEventListener("keydown", (e) => e.key === "Enter" && addList());
+});
