@@ -1,7 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-  var data = localStorage.getItem("data") === null ? [] 
-                : JSON.parse(localStorage.getItem("data")) 
-              console.log(data)
+ function toDoList(){
+  var dataTodo = localStorage.getItem("data") === null ? [] 
+  : JSON.parse(localStorage.getItem("data")) 
 
   var input = document.getElementById("input-task");
   var buttonAdd = document.getElementById("add-task");
@@ -30,10 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
     li.append(spanText, buttonRemove);
 
     li.addEventListener("click", (event) => {
-      var taskMap = new Map(data.map(item => [item.id, item])); //Iterator
+      var taskMap = new Map(dataTodo.map(item => [item.id, item])); //Iterator
       if (event.target === buttonRemove) {taskMap.delete(id)}
       else {doneTask({ id, statuse }, taskMap)};
-      data = Array.from(taskMap.values());
+      dataTodo = Array.from(taskMap.values());
       printList();
     });
 
@@ -41,9 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   var printList = () => {
-    localStorage.setItem("data", JSON.stringify(data))
+    localStorage.setItem("data", JSON.stringify(dataTodo))
     ulList.innerHTML = "";
-    data.forEach(item => ulList.appendChild(renderElement(item)));
+    dataTodo.forEach(item => ulList.appendChild(renderElement(item)));
   };
 
   var addList = () => {
@@ -51,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (valueInput.length <= 3 || valueInput.length===0) {
       return alert("Please enter a valid task"), focusInput();
     }
-    data.push({ id: Date.now(),
+    dataTodo.push({ id: Date.now(),
                 text: valueInput,
                 statuse: false 
               });
@@ -62,4 +61,4 @@ document.addEventListener("DOMContentLoaded", () => {
   buttonAdd.addEventListener("click", addList);
   input.addEventListener("keydown", (e) => e.key === "Enter" && addList());
   printList();
-});
+};
