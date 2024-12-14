@@ -5,15 +5,15 @@ body {
   font-family: "Roboto", sans-serif;
   /* background: url("background.png"); */
   /* background-size: cover; */
-  height: 100vh;
-  color: #2c3e50;
 }
-.container{
-  
+.container {
+  color: #2c3e50;
+  height: 100vh;
   width: 100%;
   max-width: 1200px;
   padding: 10px;
   margin: 2px auto;
+  text-align: center;
 }
 
 #input-task {
@@ -26,11 +26,17 @@ body {
   font-size: 16px;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  color: #2c3e50;
 }
-
+#input-task::placeholder{
+  color: #2c3e50;
+  opacity: 1;
+}
 #input-task:focus {
   border-color: #d35400;
   box-shadow: 0 0 10px rgba(211, 84, 0, 0.4);
+  color: #2c3e50;
+
 }
 
 #add-task {
@@ -53,7 +59,11 @@ body {
 }
 
 ul {
+  display: flex;
+  align-items: center;
+  justify-items: center;
   list-style-type: none;
+  gap: 10px;
   padding: 0;
   width: 100%;
   max-width: 360px;
